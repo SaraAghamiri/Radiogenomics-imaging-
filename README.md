@@ -1,4 +1,4 @@
-# Radiogenomics-imaging-
+# Radiogenomics-imaging
 Artificial Intelligence in Radiogenomics (Imaging)
 Pouria Isavand1, Atefeh Zeinoddini2, Rada Amin3, Sara Sadat Aghamiri3*
 
