@@ -1,0 +1,78 @@
+# This is a basic example, and you might need to adapt it based on your specific data, research question, and chosen statistical tests. Remember to explore additional libraries like scikit-learn for more advanced analysis techniques.
+
+# 1. Data Loading and Preprocessing:
+
+import pandas as pd
+import pydicom
+import SimpleITK as sitk
+
+# Load radiomic features
+radiomics_df = pd.read_csv("radiomic_features.csv")
+
+# Load genomic features
+genomic_df = pd.read_csv("genomic_features.csv")
+
+# Merge dataframes based on patient IDs
+merged_df = radiomics_df.merge(genomic_df, on="patient_id")
+
+# Preprocess data (e.g., handle missing values, normalize features)
+# ...
+
+# 2. Feature Selection:
+
+from sklearn.feature_selection import SelectKBest, f_regression
+
+# Select features with high correlation to radiomic features
+selector = SelectKBest(f_regression, k=10)
+selected_features = selector.fit_transform(genomic_df, radiomics_df["target_radiomic_feature"])
+
+# Update merged_df with selected features
+merged_df = merged_df[["patient_id", *selected_features, "target_radiomic_feature"]]
+
+# 3. Correlation Analysis:
+
+import scipy.stats as stats
+
+# Calculate Spearman's rank correlation coefficient
+correlation_matrix = pd.DataFrame()
+for radiomic_feature in radiomics_df.columns:
+    for genomic_feature in selected_features:
+        correlation, p_value = stats.spearmanr(merged_df[radiomic_feature], merged_df[genomic_feature])
+        correlation_matrix.loc[radiomic_feature, genomic_feature] = (correlation, p_value)
+
+# Print correlation matrix
+print(correlation_matrix)
+
+# 4. Visualization:
+
+import matplotlib.pyplot as plt
+
+# Plot heatmap of correlation coefficients
+plt.figure(figsize=(10, 10))
+plt.imshow(correlation_matrix, cmap="coolwarm")
+plt.xticks(rotation=45, ha="right")
+plt.yticks(rotation=45)
+plt.show()
+
+# 5. Statistical Testing:
+
+from statsmodels.stats.multitest import multipletests
+
+# Perform multiple hypothesis correction (e.g., Bonferroni correction)
+adjusted_p_values = multipletests(correlation_matrix.p_values.flatten())[1]
+
+# Identify significant correlations
+significant_correlations = correlation_matrix[(correlation_matrix.p_values < 0.05) & (adjusted_p_values < 0.05)]
+
+# Print significant correlations
+print(significant_correlations)
+
+
+
+
+
+
+
+
+
+
