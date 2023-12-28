@@ -1,0 +1,29 @@
+For radiogenomics research, certain Python packages are particularly important due to their specific functionalities in handling and analyzing both radiomic and genomic data. Here's a list of some of the most essential packages:
+
+1. **NumPy**: Fundamental package for scientific computing with Python, used for handling large, multi-dimensional arrays and matrices.
+
+2. **Pandas**: Essential for data manipulation and analysis, particularly useful for handling tabular data like genomic datasets.
+
+3. **Matplotlib** and **Seaborn**: These are key for data visualization. Matplotlib offers a wide range of plotting capabilities, while Seaborn provides a high-level interface for drawing attractive and informative statistical graphics.
+
+4. **Scikit-learn**: A simple and efficient tool for data mining and data analysis. It’s built on NumPy, SciPy, and matplotlib, and provides tools for machine learning and statistical modeling including classification, regression, clustering, and dimensionality reduction.
+
+5. **Scikit-image** or **OpenCV**: These libraries are used for image processing tasks. They can be utilized for preprocessing radiomic data, such as image segmentation, feature extraction, and image transformations.
+
+6. **PyRadiomics**: Specifically designed for the extraction of a large number of radiomic features from medical images. It's an essential tool in radiomics for feature extraction from CT, MRI, and PET images.
+
+7. **BioPython**: Useful for genomic data processing. It provides tools for reading and writing different sequence file formats and for handling sequence data, including simple statistical analysis.
+
+8. **TensorFlow** or **Keras**: If deep learning models are involved in your analysis (such as convolutional neural networks for image data), these libraries are essential. They provide a flexible platform for building and training neural networks.
+
+9. **SciPy**: Used for scientific and technical computing. It contains modules for optimization, linear algebra, integration, interpolation, special functions, FFT, signal, and image processing.
+
+10. **Plotly**: For interactive and aesthetically pleasing visualizations, Plotly can be a great addition. It can be particularly useful for creating interactive graphs and dashboards.
+
+11. **PyTorch**: Another library for machine learning and deep learning. It is popular for its ease of use and flexibility, particularly in the research community.
+
+12. **Radiomics Feature Extractor (PyRadiomics)**: A library specifically focused on the extraction of radiomics features from medical imaging.
+
+13. **Jupyter Notebook**: While technically not a package, Jupyter Notebooks are widely used in data science and especially in fields like radiogenomics for creating and sharing documents that contain live code, equations, visualizations, and narrative text.
+
+These packages together provide a robust toolkit for dealing with the diverse and complex tasks involved in radiogenomics research, including data handling, analysis, modeling, and visualization.
